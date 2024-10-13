@@ -1,0 +1,145 @@
+
+1.WRITE A SCRIPT TO OPEN GOOGLE.COM
+
+package love1;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class love1{
+    public static void main(String[] args) {
+System.setProperty("webdriver.chrome.driver", "C:\\selenium webdriver\\chromedriver.exe");  
+WebDriver driver = new ChromeDriver();
+
+
+  driver.get("http://www.google.co.in");
+String title=driver.getTitle();
+if(title.equals("Google"))
+{
+System.out.println("Pass:Title is Google");
+}
+else
+{
+System.out.println("Fail:Title is not Google: actual title is"+title);
+}
+
+String url=driver.getCurrentUrl();
+if(url.contains("google.co.in"))
+{
+System.out.println("Pass: url has co.in");
+}
+else
+{
+System.out.println("Fail:url dont have co.in"+url);
+}
+}
+}
+
+
+
+
+2.OPEN GOOGLE.CO
+
+package love1;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class love1 {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver", "C:\\selenium webdriver\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+            driver.get("http://www.google.com");
+    }      
+  
+    }
+
+
+
+5. CREATE INSTANCE BROWSER
+
+package love1;
+import java.util.List;
+import java.util.Scanner;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+public class love1
+{
+  public static void main(String[] args)
+  {
+    System.out.println("Enter option to search:");
+    Scanner sc=new Scanner(System.in);
+    String eText=sc.next();
+    int found=0;
+    System.out.println("Searching....");
+    System.setProperty("webdriver.chrome.driver", "C:\\selenium webdriver\\chromedriver.exe");
+WebDriver driver = new ChromeDriver();
+    driver.get("https://passportindia.gov.in/AppOnlineProject/welcomeLink#");
+    WebElement listBox = driver.findElement(By.name("country"));
+    Select select=new Select(listBox);
+    List<WebElement> allOptions = select.getOptions();
+ for(int i=0;i<allOptions.size();i++)
+    {
+        String atext = allOptions.get(i).getText();
+        if(atext.equals(eText))
+        {
+          found++;
+        }
+    }
+    
+    if(found==0)
+    {
+      System.out.println(eText+" is not found"); //No matching
+    }
+    else if(found==1) // if found >1 then duplicates
+    {
+      System.out.println(eText+" is found"); //matching found
+    }
+    else
+    {
+      System.out.println(eText+ "is duplicate");
+    }
+      driver.close();
+}
+  }
+
+
+
+
+6.
+
+package love1;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class love1
+{
+  public static void main(String[] args)
+  {
+    WebDriver driver=new FirefoxDriver();
+    driver.get("https://www.netflix.com/in/");
+    WebElement listBox = driver.findElement(By.name("country"));
+    Select select=new Select(listBox);
+    List<WebElement> allOptions = select.getOptions();
+    ArrayList<String> allText=new ArrayList<String>();
+
+    for(int i=0;i<allOptions.size();i++)
+    {
+      String text = allOptions.get(i).getText();
+      allText.add(text);
+}
+Collections.sort(allText);
+    for(String s:allText)
+{
+System.out.println(s);
+}
+}
+}
+

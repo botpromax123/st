@@ -52,6 +52,87 @@ public class love1 {
     }
 
 
+4.SCRIPT TO SEACH FOR SPECIFIED OPTION IN THE LIST BOX 
+
+package love1;
+
+import java.util.Scanner;
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+
+
+public class love1
+
+{
+
+public static void main(String[] args)
+
+{
+
+Scanner sc=new Scanner(System.in);
+
+System.out.println("Enter browser?GC/FF/IE");
+
+String browser=sc.next();
+
+WebDriver driver;
+
+
+
+if(browser.equals("GC"))
+
+{
+
+System.setProperty("webdriver.chrome.driver","C:\selenium webdriver\\chromedriver.exe");
+
+driver=new ChromeDriver();
+
+}
+
+
+
+else if(browser.equals("IE"))
+
+{
+
+System.setProperty("webdriver.ie.driver","C:\\selenium webdriver\\msedgedriver.exe");
+
+driver=new InternetExplorerDriver();
+
+}
+
+
+
+else
+
+{
+
+driver=new FirefoxDriver();
+
+}
+
+driver.get("https://www.google.co.in");
+
+System.out.println(driver.getTitle());
+
+System.out.println(driver.getCurrentUrl());
+
+driver.close();
+
+}
+
+}
+
+
+
+
 
 5. CREATE INSTANCE BROWSER
 
@@ -106,7 +187,8 @@ WebDriver driver = new ChromeDriver();
 
 
 
-6.
+6.WRITE A SCRIPT TO PRINT all  THE OPTIONS LIST IN SORTED ORDER
+
 
 package love1;
 import java.util.ArrayList;
@@ -142,4 +224,6 @@ System.out.println(s);
 }
 }
 }
+
+
 

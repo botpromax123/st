@@ -159,7 +159,7 @@ driver.close();
 
 
 
-5. CREATE INSTANCE BROWSER
+5. CREATE INSTANCE BROWSER based on browser name 
 
 package love1;
 import java.util.List;
@@ -249,6 +249,118 @@ System.out.println(s);
 }
 }
 }
+
+
+7.WRITE A SCRIPT TO PRINT ALL THE OPTIONS FOR DUPLICATE ADD ENTRY ONLY ONE 
+
+
+package love1;
+import java.util.HashSet;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import org.openqa.selenium.support.ui.Select;
+
+
+
+
+public class love1
+
+{
+
+public static void main(String[] args)
+
+{
+
+WebDriver driver=new FirefoxDriver();
+
+driver.get("https://www.netflix.com/in/");
+
+WebElement listBox = driver.findElement(By.name("country"));
+
+Select select=new Select(listBox);
+
+List<WebElement> allOptions = select.getOptions();
+
+HashSet<String> allText=new HashSet<String>();
+
+
+
+
+for(int i=0;i<allOptions.size();i++)
+
+{
+
+String text = allOptions.get(i).getText();
+
+allText.add(text);
+
+}
+
+
+
+for(Object o:allText)
+
+{
+
+System.out.println(o);
+
+}
+
+}
+
+}
+
+
+
+9.GENERIC METHOD IN SELENIUM TO HANDLE  ALL LOCATOR AND RETURN  WEB ELEMENT
+
+
+package love1;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class love1 {
+	public static WebElement getElement(WebDriver driver,String locator,String locatorType) {
+		switch (locatorType.toLowerCase()) { 
+		case "id":
+			 return driver.findElement(By.id(locator));
+		case "name":
+			 return driver.findElement(By.name(locator));
+		case "xpath":
+			return driver.findElement(By.xpath(locator));
+		case "css selector":
+			return driver.findElement(By.cssSelector(locator));	
+		default:
+			throw new IllegalArgumentException("invalid locator type"+locatorType);
+			
+		}
+		}
+	public static void main(String[]args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\selenium webdriver\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.google.co.in/");
+		WebElement element = getElement(driver,"elementId","id");
+		if( element != null) {
+			System.out.println("element is found"+element.getText());
+			
+		}
+		driver.close();
+		
+		
+		
+	}
+}
+
 
 
 

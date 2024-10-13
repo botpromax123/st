@@ -321,6 +321,38 @@ System.out.println(o);
 
 
 
+8.WRITE A SCRIPT TO CLOSE ALL THE BROWSERS WITHOUT USING QUIT() METHOD
+
+package love1;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.Set;
+
+ public class love1 {
+  public static void main(String[] args) {
+    System.setProperty("webdriver.chrome.driver", "C:\\selenium webdriver\\chromedriver.exe");
+
+    WebDriver driver = new ChromeDriver();
+    driver.get("http://www.google.com");
+
+    // Open a new window for demonstration purposes
+    driver.get("http://www.bing.com");
+
+    // Get all window handles
+    Set<String> windowHandles = driver.getWindowHandles();
+
+    // Iterate over each window handle and close it
+    for (String handle : windowHandles) {
+      driver.switchTo().window(handle);
+      driver.close();
+    }
+  }
+}
+
+
+
+
+
 9.GENERIC METHOD IN SELENIUM TO HANDLE  ALL LOCATOR AND RETURN  WEB ELEMENT
 
 
@@ -362,5 +394,43 @@ public class love1 {
 }
 
 
+10.GENERIC METHOD IN SELENIUM TO HANDLE  ALL LOCATORS CONTAINING DYNAMIC WAIT AND RETURE WEB ELEMENT 
+
+
+
+import java.time.Duration;
+
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions; 
+import org.openqa.selenium.support.ui.WebDriverWait; 
+
+	 public static WebElement getElement(WebDriver driver, String locator, String locatorType, Duration timeoutInSeconds)
+	 { 
+		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+		 switch (locatorType.toLowerCase()) 
+		{
+		 case "id": return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(locator))); 
+		case "name": return wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(locator))); case "xpath": return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator))); case "css selector": return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(locator)));
+		 default:
+		 throw new IllegalArgumentException("Invalid locator type: " + locatorType); 
+		}  
+
+	 }
+		 public static void main(String []args) {
+			 System.setProperty("webdriver.chrome.driver", "C:\\Users\\Home\\Desktop\\22bcg038\\chromedriver-win64/chromedriver.exe");
+
+			 WebDriver driver = new ChromeDriver();
+		        driver.get("https://www.google.co.in");
+
+		        // Example usage of getElement method
+		        try {
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+}
 
 

@@ -51,6 +51,31 @@ public class love1 {
   
     }
 
+3.WRITE A SCRIPT TO OPEN GOOGLE.CO.IN USING INTERNET EXPLORER
+
+package love1;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class love1 {
+
+    public static void main(String[] args) {
+        
+        // Set up the system property for Edge WebDriver
+        System.setProperty("webdriver.edge.driver", "C:\\selenium webdriver\\msedgedriver.exe");
+        
+        // Initialize Edge WebDriver
+        WebDriver driver = new EdgeDriver();
+        
+        // Open Google in Microsoft Edge
+        driver.get("https://www.google.co.in/");
+        
+        // Close the browser
+        driver.quit();
+    }
+}
+
+
 
 4.SCRIPT TO SEACH FOR SPECIFIED OPTION IN THE LIST BOX 
 

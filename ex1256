@@ -434,3 +434,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 }
 
 
+10.NEW
+
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.List;
+
+public class exer10 {
+
+	public static void main(String[] args) {
+System.setProperty("driver.chromedriver", "D:\\\\chromedriver-win64\\\\chromedriver-win64\\\\chromedriver.sh");
+WebDriver d1 = new ChromeDriver();
+d1.get("https://www.skasc.ac.in");
+
+List<WebElement> links = d1.findElements(By.tagName("div"));
+
+for(WebElement link2 : links) {
+	String linkz = link2.getText();
+	String linkx = link2.getAttribute("id");
+	System.out.println(linkz+"<> "+linkx);
+}
+
+	}
+
+}

@@ -1,0 +1,45 @@
+1.
+
+List of Challenging Experiments
+
+Write a script to open google.com and verify that title is Google and verify that it is redirected to google.co.in
+
+ii.
+
+Write a script to open google.co.in using chrome browser (ChromeDriver)
+
+III.
+
+Write a script to open google.co.in using internet explorer(Internet Explorer Driver)
+
+iv.
+
+Write a script to create browser instance based on browser name
+
+v.
+
+Write a script to search for specified option in the list box
+
+vi.
+
+Write a script to print the content of list in sorted order.
+
+vii.
+
+Write a script to print all the options. For duplicates add entry only once. Use HashSet.
+
+CLO
+
+4
+
+viii.
+
+Write a script to close all the browsers without using quit() method.
+
+Ix.
+
+Write generic method in selenium to handle all locators and return web element for any locator.
+
+x.
+
+Write generic method in selenium to handle all locators containing dynamic wait and return web element for any locator.

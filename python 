@@ -1,0 +1,294 @@
+1.Braching statement 
+
+def main():
+    age = int(input("Enter your age: "))
+
+    if age < 0:
+        print("Invalid age. Please enter a non-negative number.")
+    elif age < 13:
+        print("You are a child.")
+    elif age < 18:
+        print("You are a teenager.")
+    elif age < 65:
+        print("You are an adult.")
+    else:
+        print("You are a senior.")
+
+if __name__ == "__main__":
+    main()
+
+
+2.Looping statement 
+
+# Example: Using break and continue
+print("\nUsing break and continue:")
+for i in range(1, 11):
+    if i == 5:
+        break  # Exit the loop when i is 5
+    if i % 2 == 0:
+        continue  # Skip even numbers
+    print(i)
+
+
+
+count = 5
+
+while count > 0:
+    print(count)
+    count -= 1  # Decrease count by 1
+
+print("Blast off!")
+
+3.Srt
+def string_operations():
+    # Initial strings
+    str1 = "Hello"
+    str2 = "World"
+
+    # 1. Concatenation
+    concatenated = str1 + " " + str2
+    print("Concatenated String:", concatenated)
+
+    # 2. Slicing
+    sliced = concatenated[0:5]  # Gets "Hello"
+    print("Sliced String (0:5):", sliced)
+
+    # 3. Upper and Lower Case
+    upper_case = concatenated.upper()
+    lower_case = concatenated.lower()
+    print("Upper Case:", upper_case)
+    print("Lower Case:", lower_case)
+
+    # 4. Finding Substring
+    index = concatenated.find("World")
+    print("Index of 'World':", index)
+
+    # 5. Replacing Substring
+    replaced = concatenated.replace("World", "Python")
+    print("Replaced String:", replaced)
+
+    # 6. String Length
+    length = len(concatenated)
+    print("Length of Concatenated String:", length)
+
+    # 7. Splitting a String
+    split_string = concatenated.split(" ")
+    print("Split String:", split_string)
+
+    # 8. Joining a List of Strings
+    joined_string = " ".join(split_string)
+    print("Joined String:", joined_string)
+
+if __name__ == "__main__":
+    string_operations()
+
+
+
+#creating an tuple
+fruits =["apple","mango","banana","orange","grapes","watermelon"]
+#accessing the fruit from fruits
+print("accessing the fruits")
+mango_fruit = fruits[1]
+print(mango_fruit,"is found")
+
+#slicing
+print("\nslicing the fruit")
+slicing_fruit=fruits[1:3]
+print("The fruits are: ", slicing_fruit)
+
+#counting
+print("\ncounting the fruits")
+count_fruits= fruits.count('apple')
+print("the count is: " , count_fruits)
+
+#looping
+print("\nlooping the fruits")
+for fruit in fruits:
+    print(fruit)
+
+#checking
+print("\nchecking the fruit")
+if 'mango' in fruits:
+    print("yes")
+else:
+    print("no")
+5.tuple
+#creating an tuple
+fruits =("apple","mango","banana","orange","grapes","watermelon")
+#accessing the fruit from fruits
+print("accessing the fruits")
+mango_fruit = fruits[1]
+print(mango_fruit,"is found")
+
+#slicing
+print("\nslicing the fruit")
+slicing_fruit=fruits[1:3]
+print("The fruits are: ", slicing_fruit)
+
+#counting
+print("\ncounting the fruits")
+count_fruits= fruits.count('apple')
+print("the count is: " , count_fruits)
+
+#looping
+print("\nlooping the fruits")
+for fruit in fruits:
+    print(fruit)
+
+#checking
+print("\nchecking the fruit")
+if 'mango' in fruits:
+    print("yes")
+else:
+    print("no")
+
+
+
+6.dictionary
+# Creating a dictionary with student grades
+student_grades= {
+    "Tamil":45,
+    "English":60,
+    "maths":70,
+    "science":75,
+    "social":80
+}
+math_grade=student_grades["maths"]
+print(f"\n the maths grade is:", math_grade)
+
+student_grades['games'] = 90
+print(f"\n the updated student grade is:", student_grades)
+
+student_grades["Tamil"]=100
+print(f"\n the updated student grade is:", student_grades)
+
+student_grades.pop('games')
+print(f"\n the updated student grade is:",student_grades)
+
+print("\n all subjects grades")
+for subjects , grade in student_grades.items():
+    print(f"{subjects}:{grade}")
+
+if "English" in student_grades:
+    print("\n yes")
+else:
+    print("\n no")
+
+
+
+
+7.file handling
+# Simple Python program for file handling
+
+# Function to write data to a file
+def write_to_file(filename, data):
+    with open(filename, 'w') as file:
+        file.write(data)
+    print(f"Data has been written to {filename}.")
+
+# Function to append data to a file
+def append_to_file(filename, data):
+    with open(filename, 'a') as file:
+        file.write(data)
+    print(f"Data has been appended to {filename}.")
+
+# Function to read data from a file
+def read_from_file(filename):
+    try:
+        with open(filename, 'r') as file:
+            content = file.read()
+        print(f"Content of {filename}:")
+        print(content)
+    except FileNotFoundError:
+        print(f"The file {filename} does not exist.")
+
+# Main program
+filename = "example.txt"
+
+# Write data to the file
+write_to_file(filename, "Hello, this is the first line.\n")
+
+# Append data to the file
+append_to_file(filename, "This is the second line.\n")
+
+# Read data from the file
+read_from_file(filename)
+
+
+8.user defined exceptions
+# Define a user-defined exception for invalid age
+# Define a user-defined exception for invalid age
+class InvalidAgeError(Exception):
+    def __init__(self, age, message="Age must be between 0 and 120"):
+        self.age = age
+        self.message = message
+        super().__init__(self.message)
+
+# Function to validate age
+def validate_age(age):
+    if age < 0 or age > 120:
+        raise InvalidAgeError(age)
+    else:
+        print(f"Age {age} is valid.")
+
+# Main program
+try:
+    user_age = int(input("Enter your age: "))
+    validate_age(user_age)
+except InvalidAgeError as e:
+    print(f"InvalidAgeError: {e.message} (Given age: {e.age})")
+except ValueError:
+    print("Please enter a valid number for age.")
+
+9.pandas dataframe
+import pandas as pd
+data = {
+    "name":["amrithaa","soundhu","riya"],
+    "Age": [32,19,20],
+    "city":["madurai","coimbatore","hyderabad"]
+}
+df=pd.DataFrame(data)
+df.to_csv("data.csv",index=False)
+
+# Load the dataset
+df = pd.read_csv('data.csv')  # Replace 'your_dataset.csv' with the path to your file
+
+# Display the first few records of the DataFrame
+print("First 5 records of the DataFrame:")
+print(df.head())  # By default, head() shows the first 5 records
+
+# Summary of the DataFrame
+print("\nSummary of the DataFrame:")
+print(df.info())  # Provides an overview of the dataset, including column names, data types, and non-null counts
+
+# Statistical summary of the DataFrame
+print("\nStatistical Summary of the DataFrame:")
+print(df.describe())  # Shows summary statistics for numerical columns (mean, std, min, max, etc.)
+
+
+10.slicing,sorting,aggregation using pandas
+import pandas as pd
+
+# Sample DataFrame
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+    'Age': [24, 27, 22, 32, 29],
+    'Salary': [70000, 80000, 60000, 90000, 85000]
+}
+df = pd.DataFrame(data)
+
+# Indexing
+print("First row:\n", df.loc[0])
+print("\n'Name' column:\n", df['Name'])
+
+# Slicing
+print("\nFirst three rows:\n", df[:3])
+print("\n'Ages' and 'Salaries' columns:\n", df[['Age', 'Salary','Name']])
+
+# Sorting
+print("\nSorted by Age:\n", df.sort_values(by='Age'))
+
+# Aggregation
+print("\nMean Age:", df['Age'].mean())
+print("Total Salary:", df['Salary'].sum())
+

@@ -1,0 +1,82 @@
+ex 1(classic list view):
+all > incident > all
+right click on row of the table > configure > list layout
+view name :hhd
+name : pilot
+type : true/false
+click add save
+move the pilot from available to selected
+right click and select the view as hhd and scroll the tab to search for newly created list
+
+ex3 (Configure Development Instance):
+all > system properties > my company
+click ui16 banner image > update (Select the company logo from your local file system)
+banner text > Desired Name
+click update
+all > user_administration > companies
+search for your name here and click 
+name > desired name > update
+all > system properties > system
+scroll down to browsr tab title and set desired name
+click save
+refresh the page to make all changes
+
+ex 5(user and groups):
+all > user administration  > user
+click new
+fill the details id, fname, lname, email
+right click and save
+scroll down and click role tab
+new > itil_admin > save
+scroll down to group tab
+grouptab > edit > service desk click save
+all > useradministration > group 
+search service desk > group members
+
+ex 6(report generation):
+all > reports > view and run
+click create new report
+report name : desired name
+source type : data source
+data source : incident closed
+Type: Donut
+Configure > groupby > assigned to
+
+ex 7 (email notification):
+all > email properties 
+email sending enabled yes
+all > system notification > email > notification
+name : demo notification
+Table : Incident[incident]
+Category : Uncategorized
+
+what is will contain
+email template : Unsubscribe and Preference
+Subject : change in incident has been done
+Message HTML : Message that you are willing to convey with your team members
+
+when to send
+send when : record inserted or updated
+inserted *
+updated *
+conditions : priority | changes to | 1-Critical
+
+who will receive
+user : beth anglin
+groups : service desk
+right click and save
+
+all > incident.list
+
+click incident with low or moderate or high priority
+impact : high
+urgency : high
+work notes: change has been made by admin
+
+right click and save
+
+ex9(ui policy with ui action)
+all > system ui > ui policy
+click new
+table : Incident[incident]
+short description: incident resolved or closed
